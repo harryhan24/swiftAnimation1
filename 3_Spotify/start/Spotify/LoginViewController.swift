@@ -22,19 +22,20 @@ class LoginViewController: UIViewController {
         passwordField.center.x -= view.bounds.width
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.9,
-                initialSpringVelocity: 0.5, options: [.CurveEaseOut], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.9,
+                initialSpringVelocity: 0.5, options: [.curveEaseOut], animations: {
                     
                 //emailField
+                
            
         }, completion:nil)
             
-        UIView.animateWithDuration(0.5, delay: 0.1, usingSpringWithDamping: 0.9,
-                    initialSpringVelocity: 0.5, options: [.CurveEaseOut], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.1, usingSpringWithDamping: 0.9,
+                    initialSpringVelocity: 0.5, options: [.curveEaseOut], animations: {
                         
                 //passwordField
 

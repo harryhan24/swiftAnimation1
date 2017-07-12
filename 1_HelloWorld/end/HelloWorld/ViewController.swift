@@ -32,31 +32,36 @@ class ViewController: UIViewController {
         
         //animate Hello World label
         UIView.animateWithDuration(1.0, animations: {
-            self.helloWorld.center.y += self.view.bounds.height
-            }, completion: { finished in
-                
-            self.secondAnimation()
-        })
-        
-         //animate background color change
-        UIView.animateWithDuration(2.0, delay: 0.5, options: [], animations: {
-            
-            self.view.backgroundColor = UIColor.yellowColor()
+         
+           self.helloWorld.center.y += self.view.bounds.height
             
             }, completion:{ finished in
                 
-                self.backgroundColor()
+                self.secondAnimation()
         
+          })
+        
+         //animate background color change
+        UIView.animateWithDuration(2.0, delay: 0.5, options: [], animations: {
+           
+           self.view.backgroundColor = UIColor.yellowColor()
+            
+            }, completion:{ finished in
+        
+                self.backgroundColor()
         })
     }
+    
     
     func secondAnimation() {
         
         //animate second label
-        UIView.animateWithDuration(1.0, delay: 0.0, options: [], animations: {
+        UIView.animateWithDuration(1.0, delay: 0.0, options: [], animations: { () -> Void in
+        
             self.secondLabel.center.y -= self.view.bounds.height
             
-            }, completion:nil)
+        }, completion: nil)
+        
     }
     
     
@@ -64,13 +69,14 @@ class ViewController: UIViewController {
         
         UIView.animateWithDuration(2.5, animations: {
             self.view.backgroundColor = UIColor.blackColor()
-
+            
             }, completion:nil)
         
         UIView.animateWithDuration(1.0, delay: 1.5, options: [], animations: {
-              self.hiddenLabel.alpha = 1.0
+            self.hiddenLabel.alpha = 1.0
             
-            }, completion:nil)
+        }, completion:nil)
+      
     }
     
  

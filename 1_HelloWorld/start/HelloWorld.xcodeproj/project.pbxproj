@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					300975DD1C8E75BD00DB96C7 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -249,10 +250,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "HelloWorld-Bounce/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/HelloWorld/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HelloWorld-Bounce";
 				PRODUCT_NAME = HelloWorld;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -260,10 +262,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "HelloWorld-Bounce/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/HelloWorld/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HelloWorld-Bounce";
 				PRODUCT_NAME = HelloWorld;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

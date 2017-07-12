@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/sandyl/Desktop/starterProjects/1_HelloWorld/end/HelloWorld.xcodeproj">
+      location = "self:/Users/sandyl/Desktop/starterProjects/1_HelloWorld/start/HelloWorld.xcodeproj">
    </FileRef>
 </Workspace>

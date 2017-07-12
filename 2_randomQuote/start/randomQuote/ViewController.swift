@@ -19,7 +19,8 @@ class ViewController: UIViewController {
         
         quoteLabel.alpha = 0.0
         authorLabel.alpha = 0.0
-        
+        setQuote()
+    
         //backgroundColor
         
         
@@ -31,8 +32,9 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func randomQuotePressed(sender: UIButton) {
+    @IBAction func randomQuotePressed(_ sender: UIButton) {
         setQuote()
+        self.fadeOut();
     }
     
     
@@ -45,18 +47,24 @@ class ViewController: UIViewController {
         let dataService = DataService()
         dataService.getQuoteData {(quote, author) -> Void in
             
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 
                 //fadeIn and backgroundColor
-                
+                self.fadeIn();
+                self.view.backgroundColor = self.getRandomColor()
                 
                 //quote
+                self.quoteLabel.text = "\"\(quote)\""
                 
-                
-                //author - optional binding
+                //데이터가 있으면
+                if let aAuthor = author{
+                    self.authorLabel.text = "- \"\(aAuthor)\""
+                }
                 
                 //if no author
-                
+                if author == ""{
+                    self.authorLabel.text = "- unknown"
+                }
                 
                 }, completion:nil)
             

@@ -19,28 +19,30 @@ class ViewController: UIViewController {
         
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        helloWorld.center.y -= view.bounds.height
-        secondLabel.center.y += view.bounds.height
-        hiddenLabel.alpha = 0.0
+        helloWorld.center.y -= view.bounds.height //아래에 숨겨져 있음
+        secondLabel.center.y += view.bounds.height //위에 숨겨져있음
+        hiddenLabel.alpha = 0.0 // 알파0
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         //animate Hello World label
-        UIView.animateWithDuration(1.0, animations: {
+        UIView.animate(withDuration: 1.0, animations: {
          
-           // self.helloWorld.center.y += self.view.bounds.height
+           self.helloWorld.center.y += self.view.bounds.height
             
-            }, completion:nil)
+        }, completion:{finished in
+            self.secondAnimation()
+        })
         
          //animate background color change
-        UIView.animateWithDuration(2.0, delay: 0.0, options: [], animations: {
+        UIView.animate(withDuration: 2.0, delay: 0.5, options: [], animations: {
            
-           //self.view.backgroundColor = UIColor.yellowColor()
+           self.view.backgroundColor = UIColor.yellow
             
             }, completion:nil)
     }
@@ -50,17 +52,24 @@ class ViewController: UIViewController {
         
         //animate second label
         
+        UIView.animate(withDuration: 2.0, delay: 0.5, options: [], animations: {
+            
+            self.secondLabel.center.y -= self.view.bounds.height
+            
+        }, completion:nil)
+        
+        
     }
     
     
     func backgroundColor() {
         
-        UIView.animateWithDuration(2.5, animations: {
-            self.view.backgroundColor = UIColor.blackColor()
+        UIView.animate(withDuration: 2.5, animations: {
+            self.view.backgroundColor = UIColor.black
             
             }, completion:nil)
         
-        UIView.animateWithDuration(1.0, delay: 1.5, options: [], animations: {
+        UIView.animate(withDuration: 1.0, delay: 1.5, options: [], animations: {
             self.hiddenLabel.alpha = 1.0
             
         }, completion:nil)

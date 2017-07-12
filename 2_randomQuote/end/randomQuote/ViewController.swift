@@ -12,56 +12,63 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var quoteLabel: UILabel!
-    
     @IBOutlet weak var authorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         quoteLabel.alpha = 0.0
         authorLabel.alpha = 0.0
         
-        self.view.backgroundColor = getRandomColor()
+        //backgroundColor
+        
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     
     @IBAction func randomQuotePressed(sender: UIButton) {
-          setQuote()
+        setQuote()
     }
-
+    
     
     func setQuote() {
         
+        //fadeOut
         self.fadeOut()
         
+        
+        //getting data from API
         let dataService = DataService()
         dataService.getQuoteData {(quote, author) -> Void in
             
             UIView.animateWithDuration(0.5, animations: {
                 
+                //fadeIn and backgroundColor
                 self.fadeIn()
-                
                 self.view.backgroundColor = self.getRandomColor()
                 
-                self.quoteLabel.text = "\" \(quote)\" "
-        
                 
+                //quote
+                self.quoteLabel.text = "\"\(quote)\""
+    
+             
+                //author - optional binding
                 if let aAuthor = author {
-                    self.authorLabel.text = "- \(aAuthor)"
+                    self.authorLabel.text =  "- \(aAuthor)"
                 }
                 
                 //if no author
                 if author == "" {
-                    self.authorLabel.text = "- unknown"
+                    self.authorLabel.text =  "- unknown"
                 }
                 
-            }, completion:nil)
+                
+                }, completion:nil)
             
             
         }

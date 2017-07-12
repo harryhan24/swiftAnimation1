@@ -12,7 +12,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var message: UILabel!
@@ -48,23 +47,24 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         UIView.animateWithDuration(1, delay: 0.0, options: [], animations: {
+            
+            //display background image
             self.backgroundImage.alpha = 1.0
+
             }, completion:nil)
         
         
-        UIView.animateWithDuration(2.0, delay: 0.5,
-            usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0,
-            options: [], animations: {
+        UIView.animateWithDuration(2.0, delay: 0.5, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.0, options: [], animations: {
                 
-                self.continueButton.alpha = 1.0
+                //display button
+               self.continueButton.alpha = 1.0
+               self.continueButton.center.y -= 30
+            
                 
-                self.continueButton.center.y -= 30.0
-                
-                
-            }, completion: { _ in
+            }, completion:{ _ in
                 
                 self.marketingMessages(0)
-                
+        
         })
         
     }
@@ -74,39 +74,43 @@ class ViewController: UIViewController {
         
         let message = self.messages[index]
         self.message.text = message
+        
+        //to reposition label 
         self.message.center.y += 30.0
         
         UIView.animateKeyframesWithDuration(10.0, delay: 0.0, options: [], animations: {
             
             
             UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.10, animations: {
+                
                 self.message.alpha = 0.5
+                
             })
-            
             
             UIView.addKeyframeWithRelativeStartTime(0.10, relativeDuration: 0.05, animations: {
-                self.keyframeAnimation()
-            })
-            
-    
-            UIView.addKeyframeWithRelativeStartTime(0.90, relativeDuration: 0.05, animations: {
-                self.message.alpha = 0.0
                 
+                self.keyframeAnimation()
+                
+            })
+        
+            
+            UIView.addKeyframeWithRelativeStartTime(0.90, relativeDuration: 0.05, animations: {
+                
+                self.message.alpha = 0.0
             })
             
             
             }, completion: { _ in
                 
-                //making sure the index not out of bounds
                 if index == self.messages.count-1 {
                     index = 0
                 } else {
                     index++
                 }
-                
-                //switching to next message after index incremented
+             
                 self.marketingMessages(index)
-                
+        
+        
         })
         
     }
@@ -116,7 +120,7 @@ class ViewController: UIViewController {
         UIView.animateWithDuration(1.0, delay: 0.0,usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0,  options: [.CurveEaseOut],  animations: {
             
             self.message.center.y -= 30.0
-        
+            
         }, completion: nil)
         
     }
